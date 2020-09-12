@@ -6,7 +6,7 @@ import { ApolloServer } from "apollo-server";
 import { buildSchema } from "type-graphql";
 
 import { PORT } from "../config";
-import { BookResolver } from "./resolvers/BookResolver";
+import { BookResolver } from "./modules/book/BookResolver";
 
 async function main() {
   await createConnection();
