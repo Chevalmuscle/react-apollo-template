@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Books from "./pages/Books";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         </nav>
         <Switch>
           <Route path="/books">
-            <div>Books</div>
+            <Books />
           </Route>
           <Route path="/">
             <div>Home</div>
