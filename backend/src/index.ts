@@ -7,14 +7,16 @@ import { buildSchema } from "type-graphql";
 
 import { PORT } from "../config";
 import { BookResolver } from "./modules/book/BookResolver";
+import { LoginResolver } from "./modules/user/LoginResolver";
 import { RegisterResolver } from "./modules/user/RegisterResolver";
 
 async function main() {
   await createConnection();
-  const schema = await buildSchema({ resolvers: [BookResolver, RegisterResolver] });
-  const server = new ApolloServer({ schema });
+  const schema = await buildSchema({ resolvers: [BookResolver, LoginResolver, RegisterResolver] });
+  const server = new ApolloServer({ schema, context: ({ req }: any) => ({ req }) });
+
   await server.listen(PORT);
-  console.log(`http://localhost:${PORT} 🚀`);
+  console.log(`http://localhost:${PORT}/graphql 🚀`);
 }
 
 main();
