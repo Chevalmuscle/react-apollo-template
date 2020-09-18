@@ -1,22 +1,10 @@
 import { AuthenticationError } from "apollo-server";
 import { Resolver, Mutation, Arg } from "type-graphql";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import { JWT_SECRET } from "../../../config";
 import { AuthResponse } from "../../models/AuthResponse";
 import { User } from "../../models/User";
 import { LoginInput } from "./LoginInput";
-
-const getToken = ({ id, email, password }: User) =>
-  jwt.sign(
-    {
-      id,
-      email,
-      password,
-    },
-    JWT_SECRET,
-    { expiresIn: "1d" },
-  );
+import { getToken } from "../../utils";
 
 @Resolver()
 export class LoginResolver {
