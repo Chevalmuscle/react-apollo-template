@@ -9,12 +9,13 @@ import { PORT } from "../config";
 import { BookResolver } from "./modules/book/BookResolver";
 import { LoginResolver } from "./modules/user/LoginResolver";
 import { RegisterResolver } from "./modules/user/RegisterResolver";
+import { UserResolver } from "./modules/user/UserResolver";
 
 import { getUserFromToken } from "./utils";
 
 async function main() {
   await createConnection();
-  const schema = await buildSchema({ resolvers: [BookResolver, LoginResolver, RegisterResolver] });
+  const schema = await buildSchema({ resolvers: [BookResolver, LoginResolver, RegisterResolver, UserResolver] });
   const server = new ApolloServer({
     schema,
     context: ({ req }) => {
