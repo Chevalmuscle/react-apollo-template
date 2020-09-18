@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Arg } from "type-graphql";
-import { Book } from "../models/Book";
-import { CreateBookInput } from "../inputs/CreateBookInput";
-import { UpdateBookInput } from "../inputs/UpdateBookInput";
+import { Book } from "../../models/Book";
+import { CreateBookInput } from "./CreateBookInput";
+import { UpdateBookInput } from "./UpdateBookInput";
 
 @Resolver()
 export class BookResolver {
@@ -11,7 +11,7 @@ export class BookResolver {
   }
 
   @Query(() => Book)
-  book(@Arg("id") id: string) {
+  book(@Arg("id") id: number) {
     return Book.findOne({ where: { id } });
   }
 
