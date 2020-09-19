@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { LoginForm } from "../components/LoginForm";
+import { RegisterForm } from "../components/RegisterForm";
 import { User } from "../interfaces/User";
 import { GET_USERS } from "../apollo/queries";
 import { UsersResponse } from "../apollo/responses";
@@ -13,6 +14,7 @@ export function UsersPage() {
 
   return (
     <div>
+      <h2>Users</h2>
       <table>
         <thead>
           <tr>
@@ -32,7 +34,10 @@ export function UsersPage() {
             ))}
         </tbody>
       </table>
+      <h2>Login</h2>
       <LoginForm />
+      <h2>Register</h2>
+      <RegisterForm />
     </div>
   );
 }

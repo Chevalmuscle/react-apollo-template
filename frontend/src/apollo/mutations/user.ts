@@ -10,4 +10,12 @@ const LOGIN = gql`
   }
 `;
 
-export { LOGIN };
+const REGISTER = gql`
+  mutation register($data: RegisterInput!) {
+    register(data: $data) {
+      ${userFields}
+    }
+  }
+`;
+
+export { LOGIN, REGISTER };
