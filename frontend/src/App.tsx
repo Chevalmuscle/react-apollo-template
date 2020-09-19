@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Books } from "./pages/Books";
-import { Users } from "./pages/Users";
+import { BooksPage } from "./pages/BooksPage";
+import { UsersPage } from "./pages/UsersPage";
 
 function App() {
   return (
@@ -22,10 +22,10 @@ function App() {
         </nav>
         <Switch>
           <Route path="/books">
-            <Books />
+            <BooksPage />
           </Route>
           <Route path="/users">
-            <Users />
+            <UsersPage />
           </Route>
           <Route path="/">
             <div>Home</div>

@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { User } from "../interfaces/User";
 import { GET_USERS } from "../apollo/queries";
 
-export function Users() {
+export function UsersPage() {
   const { loading, error, data } = useQuery(GET_USERS);
 
   if (loading) return <div>Loading...</div>;
