@@ -3,9 +3,10 @@ import { useQuery } from "@apollo/client";
 import { LoginForm } from "../components/LoginForm";
 import { User } from "../interfaces/User";
 import { GET_USERS } from "../apollo/queries";
+import { UsersResponse } from "../apollo/responses";
 
 export function UsersPage() {
-  const { loading, error, data } = useQuery(GET_USERS);
+  const { loading, error, data } = useQuery<UsersResponse>(GET_USERS);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{`Error! ${error.message}`}</div>;
@@ -21,13 +22,14 @@ export function UsersPage() {
           </tr>
         </thead>
         <tbody>
-          {data.users.map((user: User) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-            </tr>
-          ))}
+          {data &&
+            data.users.map((user: User) => (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
       <LoginForm />

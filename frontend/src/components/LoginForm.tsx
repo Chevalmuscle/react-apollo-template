@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../apollo/mutations";
+import { LoginInput } from "../apollo/inputs";
+import { AuthResponse } from "../apollo/responses";
 
 export function LoginForm() {
-  const [login] = useMutation(LOGIN);
+  const [login] = useMutation<{ login: AuthResponse }, { data: LoginInput }>(LOGIN);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,7 +13,7 @@ export function LoginForm() {
     e.preventDefault();
     login({ variables: { data: { email, password } } })
       .then((response) => {
-        console.log(response.data.login);
+        console.log(response.data?.login);
       })
       .catch((e) => {
         console.log(e);
