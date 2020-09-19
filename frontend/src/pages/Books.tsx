@@ -1,9 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { Book } from "../interfaces/Book";
-import { GET_BOOKS } from "../apollo/Queries";
+import { GET_BOOKS } from "../apollo/queries";
 
-function Books() {
+export function Books() {
   const { loading, error, data } = useQuery(GET_BOOKS);
 
   if (loading) return <div>Loading...</div>;
@@ -17,5 +17,3 @@ function Books() {
     </div>
   );
 }
-
-export default Books;
