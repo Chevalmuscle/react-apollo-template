@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
+import { LoginForm } from "../components/LoginForm";
 import { User } from "../interfaces/User";
 import { GET_USERS } from "../apollo/queries";
 
@@ -10,23 +11,26 @@ export function UsersPage() {
   if (error) return <div>{`Error! ${error.message}`}</div>;
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>email</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.users.map((user: User) => (
-          <tr key={user.id}>
-            <td>{user.id}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {data.users.map((user: User) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <LoginForm />
+    </div>
   );
 }

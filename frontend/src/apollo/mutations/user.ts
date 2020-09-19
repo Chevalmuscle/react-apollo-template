@@ -1,12 +1,13 @@
 import { gql } from "@apollo/client";
 import { userFields } from "../fields";
 
-const GET_USERS = gql`
-  query GetUsers {
-    users {
+const LOGIN = gql`
+  mutation login($data: LoginInput!) {
+    login(data: $data) {
       ${userFields}
+      token
     }
   }
 `;
 
-export { GET_USERS };
+export { LOGIN };
