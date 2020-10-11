@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, TextInput } from "../elements";
+import { Button, H1, TextInput } from "../elements";
 
 const Wrapper = styled.ul`
   list-style: none;
@@ -14,6 +14,9 @@ const ComponentWrapper = styled.li`
 export function ComponentsPage() {
   return (
     <Wrapper>
+      <ComponentWrapper>
+        <H1>Hello world</H1>
+      </ComponentWrapper>
       <ComponentWrapper>
         <Button hasRippleEffect>light button</Button>
       </ComponentWrapper>
